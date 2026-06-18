@@ -1,0 +1,25 @@
+# Node / Vite
+HelloProjectSorter/node_modules/
+HelloProjectSorter/dist/
+
+# Netlify
+HelloProjectSorter/.netlify/
+.netlify/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
