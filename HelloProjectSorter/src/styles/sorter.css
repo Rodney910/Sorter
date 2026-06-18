@@ -360,7 +360,8 @@
 .result-grid-row {
   --result-row-gap: 10px;
   --result-card-max: 150px;
-  --result-card-width: min(var(--result-card-max), 100%);
+  --result-card-limit: var(--result-card-max);
+  --result-card-width: min(var(--result-card-max), var(--result-card-limit), 100%);
 
   width: 100%;
   display: flex;
@@ -372,12 +373,17 @@
 }
 
 .result-grid-row[data-row-size="2"] {
-  --result-card-width: min(var(--result-card-max), calc((100% - var(--result-row-gap)) / 2));
+  --result-card-width: min(
+    var(--result-card-max),
+    var(--result-card-limit),
+    calc((100% - var(--result-row-gap)) / 2)
+  );
 }
 
 .result-grid-row[data-row-size="3"] {
   --result-card-width: min(
     var(--result-card-max),
+    var(--result-card-limit),
     calc((100% - var(--result-row-gap) - var(--result-row-gap)) / 3)
   );
 }
@@ -385,12 +391,43 @@
 .result-grid-row[data-row-size="4"] {
   --result-card-width: min(
     var(--result-card-max),
+    var(--result-card-limit),
     calc((100% - var(--result-row-gap) - var(--result-row-gap) - var(--result-row-gap)) / 4)
   );
 }
 
 .result-grid-row[data-row-size="5"] {
   --result-card-width: min(
+    var(--result-card-max),
+    var(--result-card-limit),
+    calc((100% - var(--result-row-gap) - var(--result-row-gap) - var(--result-row-gap) - var(--result-row-gap)) / 5)
+  );
+}
+
+.result-grid-row[data-card-limit-size="1"] {
+  --result-card-limit: min(var(--result-card-max), 100%);
+}
+
+.result-grid-row[data-card-limit-size="2"] {
+  --result-card-limit: min(var(--result-card-max), calc((100% - var(--result-row-gap)) / 2));
+}
+
+.result-grid-row[data-card-limit-size="3"] {
+  --result-card-limit: min(
+    var(--result-card-max),
+    calc((100% - var(--result-row-gap) - var(--result-row-gap)) / 3)
+  );
+}
+
+.result-grid-row[data-card-limit-size="4"] {
+  --result-card-limit: min(
+    var(--result-card-max),
+    calc((100% - var(--result-row-gap) - var(--result-row-gap) - var(--result-row-gap)) / 4)
+  );
+}
+
+.result-grid-row[data-card-limit-size="5"] {
+  --result-card-limit: min(
     var(--result-card-max),
     calc((100% - var(--result-row-gap) - var(--result-row-gap) - var(--result-row-gap) - var(--result-row-gap)) / 5)
   );

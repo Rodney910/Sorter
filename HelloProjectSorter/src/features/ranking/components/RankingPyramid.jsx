@@ -13,13 +13,16 @@ export default function RankingPyramid({ pyramidSlots, imageRoot, version, onRem
       {getPyramidRows().map((row, index) => {
         const layoutSize = row.length;
         const visibleCount = row.filter((slot) => slot <= maxUsed || pyramidSlots[slot]).length;
+        const cardLimitSize = visibleCount > 0 && visibleCount < layoutSize ? Math.max(1, index) : undefined;
 
         return (
           <div
             className="result-grid-row pyramid-row"
             data-row={index + 1}
-            data-row-size={layoutSize}
+            data-row-size={visibleCount}
+            data-layout-size={layoutSize}
             data-visible-count={visibleCount}
+            data-card-limit-size={cardLimitSize}
             key={`pyramid-row-${index + 1}`}
           >
             {row.map((slot) => (
