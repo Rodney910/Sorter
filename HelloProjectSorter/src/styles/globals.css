@@ -1,0 +1,321 @@
+:root {
+  --dark-bg: #0d1117;
+  --dark-bg-2: #161b22;
+  --dark-bg-3: #10151d;
+  --text-light: #f5f6f8;
+  --text-muted: #9ba0ab;
+  --border-glow: rgba(255, 255, 255, 0.08);
+  --module-main: #d4af37;
+  --module-main-soft: #453501;
+  --module-glow: rgba(212, 175, 55, 0.6);
+  --module-gradient-end: #383852;
+  color: var(--text-light);
+  background: var(--dark-bg);
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  background: radial-gradient(circle at top left, #2a2e36, #373d47, #40495c);
+  background-attachment: fixed;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+}
+
+.particles-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-page,
+.sorter-page,
+.ranking-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-container,
+.main-container,
+.app-footer,
+.legacy-info {
+  position: relative;
+  z-index: 1;
+}
+
+.app-header.MuiAppBar-root {
+  background: linear-gradient(90deg, var(--module-main), var(--module-main-soft));
+  color: var(--text-light);
+  box-shadow: 0 0 18px var(--module-glow);
+}
+
+.app-toolbar {
+  min-height: 70px;
+  gap: 16px;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  flex: 0 0 auto;
+  margin-right: 12px;
+}
+
+.brand-logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-logo-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: #101015;
+  background: rgba(255, 255, 255, 0.72);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.brand-title {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.nav-button.MuiButton-root {
+  min-height: 38px;
+  color: var(--text-light);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.86rem;
+}
+
+.nav-button.active,
+.nav-button.MuiButton-root:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.mobile-menu-button.MuiIconButton-root {
+  display: none;
+  margin-left: auto;
+  color: var(--text-light);
+}
+
+.mobile-drawer.MuiDrawer-paper {
+  width: min(300px, 88vw);
+  background: var(--dark-bg-2);
+  color: var(--text-light);
+}
+
+.drawer-header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 20px;
+  border-bottom: 1px solid var(--border-glow);
+}
+
+.drawer-title {
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.main-container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 32px auto;
+  background: var(--dark-bg-2);
+  border: 2px solid var(--module-main);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.6s ease;
+}
+
+.page-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 4px 16px 20px;
+  text-align: center;
+}
+
+.page-title h1 {
+  margin: 0;
+  color: var(--module-main);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.25;
+  text-shadow: 0 0 12px var(--module-glow);
+}
+
+.language-switch {
+  color: var(--module-main);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.app-footer,
+.legacy-info {
+  color: #dce2ec;
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  padding: 10px 16px 24px;
+}
+
+.app-footer p,
+.legacy-info p {
+  margin: 4px 0;
+}
+
+.legacy-info a {
+  color: var(--module-main);
+}
+
+.neon-button.MuiButton-root {
+  min-height: 40px;
+  border-radius: 8px;
+  padding: 9px 18px;
+  color: #fff;
+  background: linear-gradient(90deg, var(--module-main), var(--module-gradient-end));
+  box-shadow: 0 0 10px var(--module-glow);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.neon-button.MuiButton-root:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+  box-shadow: 0 0 20px var(--module-glow);
+}
+
+.neon-button.Mui-disabled {
+  opacity: 0.44;
+}
+
+.loading-indicator {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  min-height: 160px;
+  color: var(--text-muted);
+}
+
+.loading-indicator span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--module-main);
+  animation: sk-scaleout 1s infinite ease-in-out;
+}
+
+.toast-message.MuiSnackbarContent-root {
+  background: #ffeb3b;
+  color: #111;
+  font-weight: 700;
+}
+
+.error-message {
+  color: #ffb3b3;
+  margin: 8px 0 16px;
+  text-align: center;
+}
+
+.dialog-copy {
+  color: var(--text-muted);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

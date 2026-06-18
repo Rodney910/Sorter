@@ -1,0 +1,354 @@
+@media (max-width: 960px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-button.MuiIconButton-root {
+    display: inline-flex;
+  }
+
+  .ranking-layout {
+    grid-template-columns: minmax(0, 3fr) minmax(112px, 2fr);
+    gap: clamp(8px, 2vw, 20px);
+  }
+}
+
+@media (max-width: 900px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sorter-battle-layout {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) clamp(64px, 22vw, 104px) minmax(0, 1fr);
+    gap: clamp(0.25rem, 1.5vw, 0.75rem);
+    padding-inline: 0.25rem;
+    align-items: center;
+  }
+
+  .battle-card {
+    width: clamp(92px, 34vw, 170px);
+  }
+
+  .battle-name {
+    min-height: 2.6em;
+    margin-top: 0.45rem;
+    font-size: clamp(0.58rem, 2.4vw, 0.75rem);
+  }
+
+  .battle-controls,
+  .battle-controls .sorter-controls {
+    max-width: 104px;
+  }
+
+  .battle-controls .sorter-controls {
+    gap: 0.45rem;
+  }
+
+  .battle-controls .sorter-action-button.MuiButton-root {
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    padding: 0.38rem 0.35rem;
+    border-radius: 0.45rem;
+    font-size: clamp(0.55rem, 2.4vw, 0.72rem);
+    line-height: 1.1;
+  }
+
+  .sorter-options {
+    width: 100%;
+    padding-inline: 0.25rem;
+  }
+
+  .option-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .sorter-option-card {
+    width: 100%;
+    max-width: 170px;
+  }
+
+  .sorter-option-label {
+    padding: 0.28rem 0.32rem;
+    font-size: clamp(0.58rem, 2.5vw, 0.72rem);
+  }
+
+  .sorter-option-textOnly {
+    min-height: 68px;
+    font-size: clamp(0.62rem, 2.5vw, 0.78rem);
+  }
+
+  .result-grid-row {
+    --result-row-gap: clamp(3px, 1.2vw, 6px);
+    --result-card-max: 115px;
+
+    margin-top: 4px;
+  }
+
+  .result-grid-row[data-row-size="3"] {
+    --result-card-max: 105px;
+  }
+
+  .result-grid-row[data-row-size="4"] {
+    --result-card-max: 90px;
+  }
+
+  .result-grid-row[data-row-size="5"] {
+    --result-card-max: 78px;
+  }
+
+  .result-image-card {
+    border-width: 2px;
+    border-radius: 8px;
+  }
+
+  .result-image-card .result-info {
+    min-height: 34px;
+    padding: 0.32rem 0.25rem;
+    font-size: clamp(0.52rem, 2.2vw, 0.66rem);
+    line-height: 1.12;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-toolbar {
+    min-height: 56px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand-logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  .brand-logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-title {
+    font-size: 0.82rem !important;
+  }
+
+  .main-container,
+  .home-container {
+    width: calc(100% - 16px);
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .main-container {
+    margin: 16px auto;
+  }
+
+  .home-page {
+    padding-top: 24px;
+  }
+
+  .home-container {
+    padding: 30px 16px;
+  }
+
+  .home-title h1 {
+    font-size: 1.65rem;
+  }
+
+  .home-title {
+    margin-bottom: 30px;
+  }
+
+  .sorter-container,
+  .ranking-container {
+    padding: 18px 10px;
+  }
+
+  .page-title {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .page-title h1 {
+    font-size: 1.35rem;
+  }
+
+  .results {
+    padding: 12px 8px;
+    overflow-x: hidden;
+  }
+
+  .result-image-card .result-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .pyramid-slot:not(.result-image-card) {
+    width: 112px;
+    min-height: 124px;
+    padding: 6px;
+  }
+
+  .pyramid-placeholder {
+    width: 78px;
+    height: 78px;
+  }
+
+  .result-name {
+    font-size: 0.68rem;
+  }
+
+  .ranking-actions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-card {
+    padding: 28px 20px;
+  }
+
+  .menu-card:hover,
+  .menu-card:focus-visible {
+    transform: none;
+  }
+
+  .ranking-layout {
+    grid-template-columns: minmax(0, 3fr) minmax(108px, 2fr);
+    gap: 6px;
+  }
+
+  .ranking-actions {
+    gap: 6px;
+  }
+
+  .ranking-actions .MuiButton-root {
+    min-width: 0;
+    padding: 7px 8px;
+    font-size: clamp(0.58rem, 2vw, 0.72rem);
+  }
+
+  .ranking-page .results h2 {
+    font-size: clamp(0.72rem, 2.8vw, 1.05rem);
+  }
+
+  .pyramid-message {
+    font-size: clamp(0.68rem, 2.8vw, 0.92rem);
+  }
+
+  .ranking-search .MuiInputBase-root {
+    width: 100%;
+    font-size: clamp(0.62rem, 2.6vw, 0.78rem);
+  }
+
+  .ranking-sidebar {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .extra-list {
+    max-height: 280px;
+  }
+
+  .idol-item {
+    min-width: 0;
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .idol-item img {
+    width: clamp(28px, 9vw, 42px);
+    height: clamp(28px, 9vw, 42px);
+  }
+
+  .idol-item span {
+    min-width: 0;
+    font-size: clamp(0.55rem, 2.4vw, 0.72rem);
+    line-height: 1.15;
+  }
+
+  .groups-filter {
+    gap: 5px;
+    max-height: 180px;
+  }
+
+  .group-btn {
+    min-width: 0;
+    max-width: 100%;
+    padding: 4px 6px;
+    font-size: clamp(0.52rem, 2.2vw, 0.68rem);
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .sorter-battle-layout {
+    grid-template-columns: minmax(0, 1fr) clamp(56px, 21vw, 84px) minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .battle-controls,
+  .battle-controls .sorter-controls {
+    max-width: 84px;
+  }
+
+  .battle-controls .sorter-action-button.MuiButton-root {
+    padding: 0.32rem 0.25rem;
+    font-size: 0.52rem;
+  }
+
+  .result-grid-row {
+    --result-row-gap: 3px;
+    --result-card-max: 115px;
+  }
+
+  .result-grid-row[data-row-size="2"] {
+    --result-card-max: 105px;
+  }
+
+  .result-grid-row[data-row-size="3"] {
+    --result-card-max: 88px;
+  }
+
+  .result-grid-row[data-row-size="4"] {
+    --result-card-max: 70px;
+  }
+
+  .result-grid-row[data-row-size="5"] {
+    --result-card-max: 58px;
+  }
+
+  .result-image-card .result-info {
+    min-height: 30px;
+    padding: 0.25rem 0.18rem;
+    font-size: 0.48rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .option-grid {
+    gap: 8px;
+  }
+
+  .sorter-option-card {
+    max-width: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
