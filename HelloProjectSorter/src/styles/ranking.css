@@ -41,6 +41,9 @@
 }
 
 .pyramid-slot {
+  width: var(--result-card-width);
+  max-width: var(--result-card-width);
+  flex: 0 0 var(--result-card-width);
   cursor: pointer;
   transition:
     transform 0.2s ease,
@@ -59,10 +62,14 @@
 }
 
 .pyramid-placeholder {
-  width: 100px;
-  height: 100px;
+  width: calc(var(--result-card-width) * 0.72);
+  height: calc(var(--result-card-width) * 0.72);
   border: 2px dashed rgba(0, 0, 0, 0.22);
   border-radius: 10px;
+}
+
+.pyramid-slot:not(.result-image-card) {
+  min-height: calc(var(--result-card-width) * 1.25);
 }
 
 .ranking-sidebar {

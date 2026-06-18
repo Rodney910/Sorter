@@ -398,7 +398,7 @@
 
 .result-grid-item {
   width: var(--result-card-width);
-  max-width: var(--result-card-max);
+  max-width: var(--result-card-width);
   flex: 0 0 var(--result-card-width);
   min-height: 138px;
   display: flex;
@@ -440,9 +440,10 @@
   overflow-wrap: anywhere;
 }
 
-.result-image-card {
+.result-image-card,
+.pyramid-slot.result-image-card {
   width: var(--result-card-width);
-  max-width: var(--result-card-max);
+  max-width: var(--result-card-width);
   flex: 0 0 var(--result-card-width);
   min-height: 0;
   display: flex;
@@ -461,7 +462,8 @@
   box-shadow: 0 0 0 1px #000;
 }
 
-.result-image-card img {
+.result-image-card img,
+.pyramid-slot.result-image-card img {
   display: block;
   width: 100%;
   height: auto;

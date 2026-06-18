@@ -10,26 +10,32 @@ export default function RankingPyramid({ pyramidSlots, imageRoot, version, onRem
       <h2>Ranking Result:</h2>
       {!hasItems ? <div className="pyramid-message">Select up to 15 idols</div> : null}
 
-      {getPyramidRows().map((row, index) => (
-        <div
-          className="result-grid-row pyramid-row"
-          data-row={index + 1}
-          data-row-size={row.length}
-          key={`pyramid-row-${index + 1}`}
-        >
-          {row.map((slot) => (
-            <RankingPyramidSlot
-              key={slot}
-              slot={slot}
-              item={pyramidSlots[slot]}
-              hidden={slot > maxUsed && !pyramidSlots[slot]}
-              imageRoot={imageRoot}
-              version={version}
-              onRemove={onRemove}
-            />
-          ))}
-        </div>
-      ))}
+      {getPyramidRows().map((row, index) => {
+        const layoutSize = row.length;
+        const visibleCount = row.filter((slot) => slot <= maxUsed || pyramidSlots[slot]).length;
+
+        return (
+          <div
+            className="result-grid-row pyramid-row"
+            data-row={index + 1}
+            data-row-size={layoutSize}
+            data-visible-count={visibleCount}
+            key={`pyramid-row-${index + 1}`}
+          >
+            {row.map((slot) => (
+              <RankingPyramidSlot
+                key={slot}
+                slot={slot}
+                item={pyramidSlots[slot]}
+                hidden={slot > maxUsed && !pyramidSlots[slot]}
+                imageRoot={imageRoot}
+                version={version}
+                onRemove={onRemove}
+              />
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
