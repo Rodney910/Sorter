@@ -329,6 +329,35 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .ranking-page .results {
+    padding: 5px;
+  }
+
+  .ranking-page .result-grid-row {
+    --result-row-gap: 4px;
+    --result-card-max: 70px;
+  }
+
+  .ranking-page .result-image-card {
+    border-width: 2px;
+    border-radius: 5px;
+  }
+
+  .ranking-page .result-image-card .result-info {
+    min-height: 0;
+    padding: 5px;
+    font-size: 10.5px;
+    line-height: normal;
+    font-weight: 400;
+  }
+
+  .ranking-page .result-image-card .result-name {
+    font-size: 0.7em;
+    line-height: normal;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
