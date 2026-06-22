@@ -281,10 +281,61 @@ select {
   animation: sk-scaleout 1s infinite ease-in-out;
 }
 
-.toast-message.MuiSnackbarContent-root {
-  background: #ffeb3b;
-  color: #111;
-  font-weight: 700;
+.toast-snackbar.MuiSnackbar-root {
+  position: fixed !important;
+  right: max(16px, env(safe-area-inset-right)) !important;
+  bottom: max(16px, env(safe-area-inset-bottom)) !important;
+  left: auto !important;
+  z-index: 20000 !important;
+  width: auto;
+  max-width: min(420px, calc(100vw - 32px));
+}
+
+.toast-alert.MuiAlert-root {
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.toast-alert--success.MuiAlert-root {
+  color: #f0fdf4;
+  background: #22c55e;
+}
+
+.toast-alert--warning.MuiAlert-root {
+  color: #fffde7;
+  background: #eab308;
+}
+
+.toast-alert--error.MuiAlert-root {
+  color: #fff1f2;
+  background: #ef4444;
+}
+
+.toast-alert .MuiAlert-icon,
+.toast-alert .MuiAlert-action {
+  color: inherit;
+}
+
+.toast-alert .MuiAlert-icon {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .toast-snackbar.MuiSnackbar-root {
+    right: max(8px, env(safe-area-inset-right)) !important;
+    bottom: max(8px, env(safe-area-inset-bottom)) !important;
+    left: auto !important;
+    width: calc(100vw - 16px);
+    max-width: 420px;
+  }
 }
 
 .error-message {

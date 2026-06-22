@@ -17,7 +17,7 @@ export function useRanking(dataset) {
   const [activeGroups, setActiveGroups] = useState(() => new Set(options.filter((option) => option.checked).map((option) => option.key)));
   const [search, setSearch] = useState('');
   const [pyramidSlots, setPyramidSlots] = useState(createPyramidSlots);
-  const [warning, setWarning] = useState('');
+  const [toast, setToast] = useState(null);
 
   const filteredItems = useMemo(
     () => filterRankingItems(allItems, activeGroups, search),
@@ -41,7 +41,10 @@ export function useRanking(dataset) {
 
     const free = nextFreeSlot(pyramidSlots);
     if (!free) {
-      setWarning('You can only select up to 15 idols.');
+      setToast({
+        message: 'You can only select up to 15 idols.',
+        severity: 'warning',
+      });
       return;
     }
 
@@ -73,8 +76,8 @@ export function useRanking(dataset) {
     pyramidSlots,
     filteredItems,
     selectedIds,
-    warning,
-    setWarning,
+    toast,
+    setToast,
     selectGroup,
     toggleItem,
     removeSlot,

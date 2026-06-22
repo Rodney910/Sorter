@@ -22,7 +22,7 @@ export function useSorter({ moduleId, language, dataset, imageRoot }) {
   const [selectedOptions, setSelectedOptions] = useState(() => createSelectedOptionsFromDefaults(latestOptions));
   const [state, dispatch] = useReducer(sorterReducer, undefined, createInitialSorterState);
   const [saveDialog, setSaveDialog] = useState({ open: false, url: '', saveType: '' });
-  const [toast, setToast] = useState('');
+  const [toast, setToast] = useState(null);
   const decodedQueryRef = useRef(false);
   const lastAutosaveRef = useRef('');
   const storageKey = useMemo(() => getSorterStorageKey(moduleId, language), [language, moduleId]);
@@ -106,7 +106,7 @@ export function useSorter({ moduleId, language, dataset, imageRoot }) {
         dispatch({ type: 'IMAGES_LOADED', payload: readyState });
       } catch (error) {
         dispatch({ type: 'ERROR', payload: error.message });
-        setToast(error.message);
+        setToast({ message: error.message, severity: 'error' });
       }
     },
     [dataSet, fallbackVersion, imageRoot, selectedOptions, state.resultImageCount],
@@ -119,7 +119,10 @@ export function useSorter({ moduleId, language, dataset, imageRoot }) {
         await startSort(parsed);
       } catch (error) {
         dispatch({ type: 'ERROR', payload: `Error loading shareable link: ${error.message}` });
-        setToast(`Error loading shareable link: ${error.message}`);
+        setToast({
+          message: `Error loading shareable link: ${error.message}`,
+          severity: 'error',
+        });
       }
     },
     [dataSet, startSort],
@@ -164,7 +167,7 @@ export function useSorter({ moduleId, language, dataset, imageRoot }) {
   const loadProgress = useCallback(() => {
     const { saveData } = storage.load();
     if (!saveData) {
-      setToast('No saved progress found.');
+      setToast({ message: 'No saved progress found.', severity: 'warning' });
       return;
     }
     loadEncodedSave(saveData);

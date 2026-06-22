@@ -1,6 +1,7 @@
 import { MenuItem, Select } from '@mui/material';
 import LoadingIndicator from '../../../components/common/LoadingIndicator.jsx';
 import NeonButton from '../../../components/common/NeonButton.jsx';
+import ResultExportButton from '../../result-export/components/ResultExportButton.jsx';
 
 const imageOptions = Array.from({ length: 201 }, (_value, index) => index);
 
@@ -14,6 +15,7 @@ export default function SorterControls({
   onSaveProgress,
   onSaveResult,
   onGenerateImage,
+  isExportingImage,
   onGenerateText,
   onResultImageCount,
 }) {
@@ -37,7 +39,13 @@ export default function SorterControls({
     return (
       <div className="buttons sorter-buttons sorter-controls">
         <NeonButton className="sorter-action-button" onClick={onSaveResult}>Generate Result URL</NeonButton>
-        <NeonButton className="sorter-action-button" onClick={onGenerateImage}>Generate Image</NeonButton>
+        <ResultExportButton
+          className="sorter-action-button"
+          onClick={onGenerateImage}
+          isExporting={isExportingImage}
+        >
+          Generate Image
+        </ResultExportButton>
         <NeonButton className="sorter-action-button" onClick={onGenerateText}>Generate Text List</NeonButton>
         <label className="image-selector">
           <span>Display Images on Result:</span>

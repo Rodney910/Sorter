@@ -4,7 +4,8 @@ import PageTitle from '../../../components/common/PageTitle.jsx';
 import ParticlesBackground from '../../../components/particles/ParticlesBackground.jsx';
 import ToastMessage from '../../../components/common/ToastMessage.jsx';
 import { themeParticleColors } from '../../../utils/constants.js';
-import { downloadElementAsPng } from '../../../utils/downloadUtils.js';
+import { buildSorterExportModel } from '../../result-export/adapters/resultExportModel.js';
+import { exportResultImage } from '../../result-export/services/exportResultImage.jsx';
 import { createResultFilename } from '../logic/resultBuilder.js';
 import { useSorter } from '../hooks/useSorter.js';
 import { useSorterKeyboard } from '../hooks/useSorterKeyboard.js';
@@ -18,16 +19,38 @@ import TextListDialog from './TextListDialog.jsx';
 
 export default function SorterPage({ moduleId, title, dataset, imageRoot, theme, language }) {
   const resultRef = useRef(null);
+  const imageExportLockRef = useRef(false);
   const [textListOpen, setTextListOpen] = useState(false);
+  const [isExportingImage, setIsExportingImage] = useState(false);
   const sorter = useSorter({ moduleId, language, dataset, imageRoot });
   const activeVersion = sorter.state.currentVersion || dataset.dataSetVersion;
 
   const generateImage = async () => {
-    if (sorter.state.status !== 'finished') return;
+    if (sorter.state.status !== 'finished' || imageExportLockRef.current) return;
+
+    imageExportLockRef.current = true;
+    setIsExportingImage(true);
+    sorter.setToast(null);
+
     try {
-      await downloadElementAsPng(resultRef.current, createResultFilename(sorter.state));
+      const model = buildSorterExportModel({
+        title,
+        state: sorter.state,
+        imageRoot,
+        version: activeVersion,
+        language,
+      });
+
+      await exportResultImage({ model, filename: createResultFilename(sorter.state) });
+      sorter.setToast({ message: 'Image saved successfully.', severity: 'success' });
     } catch (error) {
-      sorter.setToast(`Error generating image: ${error.message}`);
+      sorter.setToast({
+        message: `Error generating image: ${error.message}`,
+        severity: 'error',
+      });
+    } finally {
+      imageExportLockRef.current = false;
+      setIsExportingImage(false);
     }
   };
 
@@ -56,6 +79,7 @@ export default function SorterPage({ moduleId, title, dataset, imageRoot, theme,
       onSaveProgress={() => sorter.saveProgress('Progress')}
       onSaveResult={() => sorter.saveProgress('Last Result')}
       onGenerateImage={generateImage}
+      isExportingImage={isExportingImage}
       onGenerateText={() => setTextListOpen(true)}
       onResultImageCount={sorter.setResultImageCount}
     />
@@ -122,7 +146,12 @@ export default function SorterPage({ moduleId, title, dataset, imageRoot, theme,
         onClose={() => sorter.setSaveDialog({ open: false, url: '', saveType: '' })}
       />
       <TextListDialog open={textListOpen} finalCharacters={sorter.state.finalCharacters} onClose={() => setTextListOpen(false)} />
-      <ToastMessage open={!!sorter.toast} message={sorter.toast} onClose={() => sorter.setToast('')} />
+      <ToastMessage
+        open={Boolean(sorter.toast)}
+        message={sorter.toast?.message || ''}
+        severity={sorter.toast?.severity}
+        onClose={() => sorter.setToast(null)}
+      />
     </div>
   );
 }

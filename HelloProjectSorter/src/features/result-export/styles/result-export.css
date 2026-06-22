@@ -1,0 +1,143 @@
+.result-export-host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2147483647;
+  pointer-events: none;
+}
+
+.result-export {
+  /*
+   * Fallback width. ResultExportTemplate overrides it from the longest row,
+   * preserving the fixed desktop card, gap and padding proportions below.
+   */
+  --result-export-width: 240px;
+
+  /* Current desktop sorter proportions; adjust these tokens as a single design system. */
+  --result-export-panel-padding: 18px;
+  --result-export-row-gap: 10px;
+  --result-export-card-width: 150px;
+  --result-export-card-border: 3px;
+  --result-export-card-radius: 10px;
+  --result-export-caption-height: 42px;
+
+  box-sizing: border-box;
+  width: var(--result-export-width);
+  padding: var(--result-export-panel-padding);
+  color: #111;
+  background: #f5f6f8;
+  border-radius: 10px;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+.result-export *,
+.result-export *::before,
+.result-export *::after {
+  box-sizing: border-box;
+}
+
+.result-export__title {
+  margin: 0 0 14px;
+  color: #000;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 21.6px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.result-export__empty-message {
+  margin: 10px 0;
+  color: #000;
+  font-size: 17.6px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.result-export__row {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: var(--result-export-row-gap);
+  margin-top: 5px;
+}
+
+.result-export__card {
+  width: var(--result-export-card-width);
+  max-width: var(--result-export-card-width);
+  flex: 0 0 var(--result-export-card-width);
+  overflow: hidden;
+  border: var(--result-export-card-border) solid #fff;
+  border-radius: var(--result-export-card-radius);
+}
+
+.result-export__card--image {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 0;
+  color: #fff;
+  background: #000;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.result-export__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #000;
+}
+
+.result-export__caption {
+  width: 100%;
+  min-height: var(--result-export-caption-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 7.2px 5.6px;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.95), rgba(30, 30, 30, 0.95), rgba(0, 0, 0, 0.95));
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.result-export__rank,
+.result-export__name {
+  min-width: 0;
+  overflow: hidden;
+  color: #fff;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.result-export__rank {
+  font-weight: 800;
+}
+
+.result-export__card--empty {
+  min-height: calc(var(--result-export-card-width) * 1.25);
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  background: #fff;
+}
+
+.result-export__placeholder {
+  width: calc(var(--result-export-card-width) * 0.72);
+  height: calc(var(--result-export-card-width) * 0.72);
+  border: 2px dashed rgba(0, 0, 0, 0.22);
+  border-radius: var(--result-export-card-radius);
+}
