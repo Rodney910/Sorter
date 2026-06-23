@@ -33,6 +33,7 @@ export default function RankingPage({ moduleId, title, dataset, imageRoot, theme
         imageRoot,
         version: ranking.version,
         language,
+        theme,
       });
 
       await exportResultImage({ model, filename: buildTimestampFilename('pyramid', Date.now()) });

@@ -39,6 +39,7 @@ export default function SorterPage({ moduleId, title, dataset, imageRoot, theme,
         imageRoot,
         version: activeVersion,
         language,
+        theme,
       });
 
       await exportResultImage({ model, filename: createResultFilename(sorter.state) });

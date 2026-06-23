@@ -1346,4 +1346,3 @@ dataSet[dataSetVersion].characterData = [
 
 export const imageRoot = '/assets/songs/';
 export default { dataSetVersion, dataSet, imageRoot };
-

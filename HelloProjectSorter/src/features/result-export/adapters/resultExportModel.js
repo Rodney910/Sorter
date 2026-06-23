@@ -25,10 +25,11 @@ function createEmptyEntry(rank) {
   };
 }
 
-export function buildSorterExportModel({ title, state, imageRoot, version, language }) {
+export function buildSorterExportModel({ title, state, imageRoot, version, language, theme }) {
   return {
     kind: 'sorter',
     title,
+    theme,
     resultTitle: 'Ranking Result:',
     language,
     generatedAt: state.timestamp + state.timeTaken,
@@ -50,7 +51,7 @@ export function buildSorterExportModel({ title, state, imageRoot, version, langu
   };
 }
 
-export function buildRankingExportModel({ title, pyramidSlots, imageRoot, version, language }) {
+export function buildRankingExportModel({ title, pyramidSlots, imageRoot, version, language, theme }) {
   const maxUsedSlot = getMaxUsedSlot(pyramidSlots);
   const rows = getPyramidRows()
     .map((row) =>
@@ -77,6 +78,7 @@ export function buildRankingExportModel({ title, pyramidSlots, imageRoot, versio
   return {
     kind: 'ranking',
     title,
+    theme,
     resultTitle: 'Ranking Result:',
     language,
     generatedAt: Date.now(),

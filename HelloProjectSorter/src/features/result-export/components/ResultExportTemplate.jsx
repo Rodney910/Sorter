@@ -57,10 +57,11 @@ function ResultExportCard({ entry }) {
 
 export default function ResultExportTemplate({ model }) {
   const resultWidth = getResultExportWidth(model.rows);
+  const themeClassName = model.theme ? ` theme-${model.theme}` : '';
 
   return (
     <section
-      className="result-export"
+      className={`result-export${themeClassName}`}
       data-result-export
       lang={model.language || 'en'}
       style={{ '--result-export-width': `${resultWidth}px` }}

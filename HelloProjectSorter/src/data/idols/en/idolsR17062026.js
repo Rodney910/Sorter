@@ -246,4 +246,3 @@ dataSet[dataSetVersion].characterData = [
 
 export const imageRoot = '/assets/idols/';
 export default { dataSetVersion, dataSet, imageRoot };
-

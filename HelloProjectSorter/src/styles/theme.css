@@ -1,3 +1,16 @@
+/*
+ * Result caption gradient shared by the on-screen result and image export.
+ * Adjust the mix percentages to change its overall intensity. To customize a
+ * single module, override either variable inside its .theme-* rule below.
+ */
+.theme-home,
+.theme-idols,
+.theme-songs,
+.theme-ranking {
+  --result-caption-gradient-edge: color-mix(in srgb, var(--module-main) 82%, #050505);
+  --result-caption-gradient-center: color-mix(in srgb, var(--module-glow) 30%, #111);
+}
+
 .theme-home {
   --module-main: #d4af37;
   --module-main-soft: #453501;

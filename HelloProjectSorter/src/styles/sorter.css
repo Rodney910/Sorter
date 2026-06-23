@@ -525,7 +525,11 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.95), rgba(30, 30, 30, 0.95), rgba(0, 0, 0, 0.95));
+  background: linear-gradient(
+    to right,
+    var(--result-caption-gradient-center, rgba(30, 30, 30, 0.95)),
+    var(--result-caption-gradient-edge, rgba(0, 0, 0, 0.95))
+  );
 }
 
 .result-image-card .result-rank,
