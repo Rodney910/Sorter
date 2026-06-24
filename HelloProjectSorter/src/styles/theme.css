@@ -20,21 +20,21 @@
 
 .theme-idols {
   --module-main: #00e5ff;
-  --module-main-soft: #003344;
+  --module-main-soft: #000144;
   --module-glow: rgba(0, 229, 255, 0.6);
   --module-gradient-end: #383852;
 }
 
 .theme-songs {
   --module-main: #d500f9;
-  --module-main-soft: #3e2852;
+  --module-main-soft: #1D0045;
   --module-glow: rgba(213, 0, 249, 0.6);
   --module-gradient-end: #3e2852;
 }
 
 .theme-ranking {
   --module-main: #ff5252;
-  --module-main-soft: #522828;
+  --module-main-soft: #450000;
   --module-glow: rgba(255, 82, 82, 0.6);
   --module-gradient-end: #522828;
 }

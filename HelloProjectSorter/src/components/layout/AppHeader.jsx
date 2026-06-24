@@ -33,7 +33,6 @@ export default function AppHeader() {
         <RouterLink to="/" className="brand-link" aria-label="Hello! Project Sorter home">
           <span className="brand-logo">
             <img src="/assets/icons/Hermandad.png" alt="" onError={(event) => event.currentTarget.remove()} />
-            <span className="brand-logo-fallback">H!P</span>
           </span>
           <Typography component="span" className="brand-title">
             Hello! Project Sorter & Rankings
