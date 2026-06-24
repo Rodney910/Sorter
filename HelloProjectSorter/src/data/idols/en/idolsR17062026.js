@@ -101,7 +101,7 @@ dataSet[dataSetVersion].characterData = [
 
     { name: "Nonaka Miki", img: "MNMSM2601.jpg", color: "#572A7B", opts: { group: ["momusu"] } }, // purple
     { name: "Oda Sakura", img: "MNMSM2602.jpg", color: "#B57EDC", opts: { group: ["momusu"] } }, // lavender
-    { name: "Makino Maria", img: "MNMSM2603.jpg", color: "#FF90CF", opts: { group: ["momusu"] } }, // pink
+    { name: "Makino Maria", img: "MNMSM2603.jpg", color: "#FF90CF", opts: { group: ["momusuog"] } }, // pink
     { name: "Okamura Homare", img: "MNMSM2604.jpg", color: "#FFE433", opts: { group: ["momusu"] } }, // daisy
     { name: "Yamazaki Mei", img: "MNMSM2605.jpg", color: "#3EB235", opts: { group: ["momusu"] } }, // bright green
     { name: "Sakurai Rio", img: "MNMSM2606.jpg", color: "#EECBAD", opts: { group: ["momusu"] } }, // milk tea
