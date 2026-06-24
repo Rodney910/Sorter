@@ -103,7 +103,7 @@ dataSet[dataSetVersion].characterData = [
 
     { name: "野中美希", img: "MNMSM2601.jpg", color: "#572A7B", opts: { group: ["momusu"] } }, // purple
     { name: "小田さくら", img: "MNMSM2602.jpg", color: "#B57EDC", opts: { group: ["momusu"] } }, // lavender
-    { name: "牧野真莉愛", img: "MNMSM2603.jpg", color: "#FF90CF", opts: { group: ["momusu"] } }, // pink
+    { name: "牧野真莉愛", img: "MNMSM2603.jpg", color: "#FF90CF", opts: { group: ["momusuog"] } }, // pink
     { name: "岡村ほまれ", img: "MNMSM2604.jpg", color: "#FFE433", opts: { group: ["momusu"] } }, // daisy
     { name: "山﨑愛生", img: "MNMSM2605.jpg", color: "#3EB235", opts: { group: ["momusu"] } }, // bright green
     { name: "櫻井梨央", img: "MNMSM2606.jpg", color: "#EECBAD", opts: { group: ["momusu"] } }, // milk tea
