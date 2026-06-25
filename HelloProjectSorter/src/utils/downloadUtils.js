@@ -26,8 +26,10 @@ function shouldUseHtml2Canvas() {
 function renderWithHtml2Canvas(element) {
   return html2canvas(element, {
     backgroundColor: '#161b22',
-    scale: 2,
+    scale: 3,
     useCORS: true,
+    imageSmoothing: true,
+    imageSmoothingQuality: 'high',
   });
 }
 
