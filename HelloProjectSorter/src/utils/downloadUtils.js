@@ -10,6 +10,27 @@ function triggerDownload(dataUrl, filename) {
   document.body.removeChild(link);
 }
 
+function shouldUseHtml2Canvas() {
+  const userAgent = navigator.userAgent;
+  const isIOS =
+    /iPad|iPhone|iPod/i.test(userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isSafari =
+    /Safari/i.test(userAgent) &&
+    /Apple Computer/i.test(navigator.vendor) &&
+    !/CriOS|FxiOS|EdgiOS|OPiOS|Chrome|Chromium|Edg/i.test(userAgent);
+
+  return isIOS || isSafari;
+}
+
+function renderWithHtml2Canvas(element) {
+  return html2canvas(element, {
+    backgroundColor: '#161b22',
+    scale: 2,
+    useCORS: true,
+  });
+}
+
 export async function downloadElementAsPng(element, filename) {
   if (!element) {
     throw new Error('No element was provided for PNG export.');
@@ -28,6 +49,12 @@ export async function downloadElementAsPng(element, filename) {
   element.style.marginBottom = '30px';
 
   try {
+    if (shouldUseHtml2Canvas()) {
+      const canvas = await renderWithHtml2Canvas(element);
+      triggerDownload(canvas.toDataURL('image/png'), filename);
+      return;
+    }
+
     const dataUrl = await toPng(element, {
       cacheBust: true,
       pixelRatio: 2,
@@ -41,12 +68,8 @@ export async function downloadElementAsPng(element, filename) {
       },
     });
     triggerDownload(dataUrl, filename);
-  } catch (error) {
-    const canvas = await html2canvas(element, {
-      backgroundColor: '#161b22',
-      scale: 2,
-      useCORS: true,
-    });
+  } catch {
+    const canvas = await renderWithHtml2Canvas(element);
     triggerDownload(canvas.toDataURL('image/png'), filename);
   } finally {
     element.style.boxShadow = previous.boxShadow;
