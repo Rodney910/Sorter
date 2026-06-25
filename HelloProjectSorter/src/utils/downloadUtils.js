@@ -1,5 +1,5 @@
 import { toPng } from 'html-to-image';
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas-pro';
 
 function triggerDownload(dataUrl, filename) {
   const link = document.createElement('a');
