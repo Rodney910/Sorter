@@ -124,6 +124,7 @@ dataSet[dataSetVersion].characterData = [
     { name: "Someya Sara", img: "KSS13.jpg", color: "", opts: { group: ["kss"] } },
     { name: "Suzuki Kotomi", img: "KSS14.jpg", color: "", opts: { group: ["kss"] } },
     { name: "Saito Yurika", img: "KSS15.jpg", color: "", opts: { group: ["kss"] } },
+    { name: "Yamamoto Hana", img: "KSS23.jpg", color: "", opts: { group: ["kss"] } },
     { name: "Kishida Momoka", img: "KSS16.jpg", color: "", opts: { group: ["kss"] } },
     { name: "Tamura Nana", img: "KSS17.jpg", color: "", opts: { group: ["kss"] } },
     { name: "Nagai Riina", img: "KSS18.jpg", color: "", opts: { group: ["kss"] } },

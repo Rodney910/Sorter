@@ -124,6 +124,7 @@ dataSet[dataSetVersion].characterData = [
     { name: "染谷彩良", img: "KSS13.jpg", color: "", opts: { group: ["kss"] } },
     { name: "鈴木琴美", img: "KSS14.jpg", color: "", opts: { group: ["kss"] } },
     { name: "斎藤ゆり夏", img: "KSS15.jpg", color: "", opts: { group: ["kss"] } },
+    { name: "山本はな", img: "KSS23.jpg", color: "", opts: { group: ["kss"] } },
     { name: "岸田桃果", img: "KSS16.jpg", color: "", opts: { group: ["kss"] } },
     { name: "田村那々", img: "KSS17.jpg", color: "", opts: { group: ["kss"] } },
     { name: "長井莉依奈", img: "KSS18.jpg", color: "", opts: { group: ["kss"] } },
