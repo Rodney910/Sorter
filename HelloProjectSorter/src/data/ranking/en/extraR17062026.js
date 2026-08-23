@@ -245,7 +245,7 @@ dataSet[dataSetVersion].characterData = [
     { name: "Ishiguri Kanami", img: "OCNMOG01.jpg", color: "#FF8C00", opts: { group: ["ochaog"] } }, // orange
     { name: "Tashiro Sumire", img: "OCNMOG02.jpg", color: "#9674EF", opts: { group: ["ochaog"] } }, // light purple
 
-    { name: "Morning Musume '26", img: "MNMSM2500.jpg", opts: { group: ["current"] } },
+    { name: "Morning Musume '26", img: "MNMSM2600.jpg", opts: { group: ["current"] } },
     { name: "ANGERME", img: "ANGM00.jpg", opts: { group: ["current"] } },
     { name: "Juice=Juice", img: "JCJC00.jpg", opts: { group: ["current"] } },
     { name: "Tsubaki Factory", img: "TBKFTR00.jpg", opts: { group: ["current"] } },
